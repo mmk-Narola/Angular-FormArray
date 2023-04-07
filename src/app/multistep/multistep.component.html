@@ -1,0 +1,108 @@
+<div class="container">
+  <app-title [title]="title"></app-title>
+  <form [formGroup]="Empregister">
+    <mat-stepper [linear]="isLinear" #stepper>
+      <mat-step [stepControl]="Basic">
+        <div formGroupName="basic">
+          <ng-template matStepLabel>Fill out your Basic Details</ng-template>
+          <mat-form-field appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input
+              matInput
+              placeholder="First name"
+              formControlName="firstname"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input
+              matInput
+              placeholder="Last name"
+              formControlName="lastname"
+            />
+          </mat-form-field>
+          <div>
+            <button mat-raised-button matStepperNext color="primary">
+              Next
+            </button>
+          </div>
+        </div>
+      </mat-step>
+      <mat-step [stepControl]="Contact" label="Fill out your Contact Details">
+        <form formGroupName="contact">
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" placeholder="Email" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone" placeholder="Phone" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>link</mat-label>
+            <input matInput formControlName="link" placeholder="links" />
+          </mat-form-field>
+          <div>
+            <button mat-raised-button matStepperPrevious color="primary">
+              Back
+            </button>
+            <button mat-raised-button matStepperNext color="accent">
+              Next
+            </button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="Address" label="Fill out your Address">
+        <div formGroupName="address">
+          <mat-form-field appearance="fill">
+            <mat-label>Country</mat-label>
+            <input matInput formControlName="country" placeholder="country" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>State</mat-label>
+            <input matInput formControlName="state" placeholder="state" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city" placeholder="city" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Pin</mat-label>
+            <input matInput formControlName="pin" placeholder="pin" />
+          </mat-form-field>
+          <div>
+            <button mat-raised-button matStepperPrevious color="primary">
+              Back
+            </button>
+            <button mat-raised-button color="accent" (click)="handleSubmit()">
+              Submit
+            </button>
+          </div>
+        </div>
+      </mat-step>
+    </mat-stepper>
+  </form>
+
+  <div>
+    <ng-container>
+      <table style="width: 100%">
+        <thead>
+          <tr>
+            <th>ss</th>
+            <th>ss</th>
+            <th>ss</th>
+            <th>ss</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of empData">
+          <tr>
+            <td>{{ item.address.city }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+    {{ empData | json }}
+  </div>
+</div>
+
+<!-- (ngSubmit)="handleSubmit()" -->

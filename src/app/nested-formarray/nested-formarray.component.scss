@@ -1,0 +1,29 @@
+.mat-elevation-z8 {
+  width: 1400px;
+  margin: 20px 0px 0px 100px;
+  padding-bottom: 20px;
+}
+
+.box {
+  border: 1px solid blue;
+  padding: 10px;
+  width: 600px;
+  margin: 5px;
+}
+
+.mat-form-field {
+  width: 50%;
+
+  .fields {
+    display: flex;
+  }
+}
+.skillField {
+  display: flex;
+  flex-direction: row;
+}
+.data {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}

@@ -1,0 +1,100 @@
+<div style="display: flex; justify-content: center">
+  <app-title [title]="title"></app-title>
+</div>
+<div class="mat-elevation-z8">
+  <div>
+    <a
+      mat-raised-button
+      color="primary"
+      style="margin: 2%"
+      (click)="addEmployee()"
+    >
+      Add Employees <mat-icon>add</mat-icon>
+    </a>
+  </div>
+  <form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="employees" class="data">
+      <div *ngFor="let employee of employees().controls; let empIndex = index">
+        <div [formGroupName]="empIndex" class="box">
+          <h3>Employee Id:{{ empIndex + 1 }}</h3>
+          <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input
+              matInput
+              placeholder="First Name"
+              formControlName="firstName"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input
+              matInput
+              placeholder="Last Name"
+              formControlName="lastName"
+            />
+          </mat-form-field>
+          <button
+            mat-raised-button
+            color="accent"
+            type="button"
+            (click)="addEmployeeSkill(empIndex)"
+          >
+            Add Skill
+          </button>
+          &nbsp;
+          <button
+            mat-raised-button
+            color="warn"
+            type="submit"
+            (click)="removeEmployee(empIndex)"
+          >
+            Remove
+          </button>
+
+          <br />
+          <br />
+
+          <div formArrayName="skills">
+            <div
+              *ngFor="
+                let skills of employeeSkills(empIndex).controls;
+                let skillIndex = index
+              "
+            >
+              <div [formGroupName]="skillIndex">
+                <div class="skillField">
+                  <!-- {{ skillIndex + 1 }} -->
+                  <mat-form-field appearance="outline">
+                    <mat-label> Skill:</mat-label>
+                    <input
+                      matInput
+                      placeholder="Skill"
+                      formControlName="skill"
+                    />
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline">
+                    <mat-label> Exp:</mat-label>
+                    <input matInput placeholder="Exp" formControlName="exp" />
+                  </mat-form-field>
+                </div>
+                <button
+                  mat-raised-button
+                  color="warn"
+                  type="submit"
+                  (click)="removeEmployeeSkill(empIndex, skillIndex)"
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>
+          <br />
+          <button mat-raised-button color="primary" type="submit">
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

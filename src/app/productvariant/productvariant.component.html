@@ -1,0 +1,50 @@
+<div style="display: flex; justify-content: center">
+  <app-title [title]="title"></app-title>
+</div>
+<div class="mat-elevation-z8" *ngIf="isListing">
+  <div>
+    <a mat-raised-button color="primary" routerLink="create" style="margin: 2%">
+      Create New
+    </a>
+  </div>
+
+  <table class="mat-elevation-z8" mat-table [dataSource]="productData">
+    <ng-container matColumnDef="code">
+      <th mat-header-cell *matHeaderCellDef>Code</th>
+      <td mat-cell *matCellDef="let element">{{ element.code }}</td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Price</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.price | currency : "INR," : "code" }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="remarks">
+      <th mat-header-cell *matHeaderCellDef>Remarks</th>
+      <td mat-cell *matCellDef="let element">{{ element.remark }}</td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef style="width: 15%">Action</th>
+      <td mat-cell *matCellDef="let element">
+        <a mat-raised-button color="primary" (click)="EditProduct(element.id)">
+          Edit
+        </a>
+        ||
+        <a mat-raised-button color="accent" (click)="DeleteProduct(element.id)">
+          Delete
+        </a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayColums"></tr>
+    <tr mat-header-row *matRowDef="let row; columns: displayColums"></tr>
+  </table>
+</div>
+
+<div class="mat-elevation-z8">
+  <router-outlet></router-outlet>
+</div>

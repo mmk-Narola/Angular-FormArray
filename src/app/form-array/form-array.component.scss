@@ -1,0 +1,15 @@
+.container {
+  margin-top: 20px;
+  margin-left: 20%;
+  .mat-card {
+    width: 70%;
+
+    .rIcon {
+      display: flex;
+      justify-content: end;
+    }
+  }
+  .mat-form-field {
+    width: 100%;
+  }
+}

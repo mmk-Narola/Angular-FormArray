@@ -1,0 +1,27 @@
+<div class="container">
+  <ng-container *ngFor="let languages of langs">
+    <label for="{{ languages }}">
+      <input
+        type="checkbox"
+        value="{{ languages }}"
+        (change)="handleChanage($event)"
+      />
+      {{ languages }}
+    </label>
+    <!-- <mat-checkbox class="example-margin" (change)="handleChanage($event)">
+      {{ languages }}
+    </mat-checkbox> -->
+  </ng-container>
+
+  <div>
+    {{ checkBox.get("languages")?.value }}
+  </div>
+
+  <br />
+
+  Single File Upload:
+  <input type="file" (change)="uploadFile($event)" />
+
+  Multiple File Upload:
+  <input type="file" multiple (change)="uploadMultiple($event)" />
+</div>

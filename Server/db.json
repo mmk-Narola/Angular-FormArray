@@ -1,0 +1,110 @@
+{
+  "products": [
+    {
+      "code": "T001",
+      "name": "Tshirt",
+      "price": "1450",
+      "remark": "party T-shirt",
+      "category": 5,
+      "variants": [
+        {
+          "productCode": "T001",
+          "price": "1500",
+          "isactive": true,
+          "colorId": "2",
+          "sizeId": "2",
+          "remarks": "tshirt"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "code": "T002",
+      "name": "ASDZ",
+      "price": "2540",
+      "remark": "Formal Dress",
+      "category": 3,
+      "variants": [
+        {
+          "productCode": "T002",
+          "price": "4875",
+          "isactive": true,
+          "colorId": "3",
+          "sizeId": "1",
+          "remarks": "zdxcd"
+        }
+      ],
+      "id": 3
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Sports Equipments "
+    },
+    {
+      "id": 2,
+      "name": "Dress"
+    },
+    {
+      "id": 3,
+      "name": "Safety Kits "
+    },
+    {
+      "id": 4,
+      "name": "Mariage "
+    },
+    {
+      "id": 5,
+      "name": "Party"
+    }
+  ],
+  "color": [
+    {
+      "id": 1,
+      "name": "Red"
+    },
+    {
+      "id": 2,
+      "name": "White"
+    },
+    {
+      "id": 3,
+      "name": "Blue"
+    },
+    {
+      "id": 4,
+      "name": "Black"
+    },
+    {
+      "id": 5,
+      "name": "Pink"
+    }
+  ],
+  "size": [
+    {
+      "id": 1,
+      "size": "XL"
+    },
+    {
+      "id": 2,
+      "size": "L"
+    },
+    {
+      "id": 3,
+      "size": "XXL"
+    },
+    {
+      "id": 4,
+      "size": "S"
+    },
+    {
+      "id": 5,
+      "size": "M"
+    },
+    {
+      "id": 6,
+      "size": "L"
+    }
+  ]
+}
